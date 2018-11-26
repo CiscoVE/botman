@@ -17,6 +17,9 @@ class User implements UserInterface
 
     /** @var string */
     protected $username;
+    
+    /** @var string */
+    protected $email;
 
     /** @var array */
     protected $user_info;
@@ -29,12 +32,13 @@ class User implements UserInterface
      * @param $username
      * @param $user_info
      */
-    public function __construct($id = null, $first_name = null, $last_name = null, $username = null, $user_info = [])
+    public function __construct($id = null, $first_name = null, $last_name = null, $username = null,$email = null, $user_info = [])
     {
         $this->id = $id;
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->username = $username;
+        $this->email = $email;
         $this->user_info = (array) $user_info;
     }
 
@@ -68,6 +72,14 @@ class User implements UserInterface
     public function getLastName()
     {
         return $this->last_name;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     /**
